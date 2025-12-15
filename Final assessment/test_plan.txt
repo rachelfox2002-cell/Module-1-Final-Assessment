@@ -1,0 +1,55 @@
+Test Plan:
+
+Input:
+planet = Planet("Mercury", 3.30e23, 58, [])
+
+Output Expected:
+planet.name = Mercury
+planet.mass = 3.30e23
+planet.distance = 58
+planet.moons = none
+
+
+Input:
+planet = (Planet("Jupiter", 1.90e27, 778, ["Io", "Europa", "Ganymede", "Callisto"]))
+planet.moon_count()
+
+Output expected:
+4
+
+With no moons:
+
+Input:
+planet = (Planet("Venus", 4.87e24, 108, []))
+planet.moon_count()
+
+Expected Output:
+none
+
+Input:
+system.get_planet("earth")      -Captures lowercase:
+                                     def get_planet(self, name):
+                                     for planet in self.planets:
+                                        if planet.name.lower() == name.lower():
+                                            return planet
+                                        return []
+
+Output:
+earth
+
+Input:
+ if choice == "2":
+        name = input("Planet name: ")
+        planet = system.get_planet(name)
+        if Planet:
+            print(planet.name, "Mass:", planet.mass, "kg")
+        else:
+            print("Enter a different Planet")
+User Inputs: Mars
+Output: Mars Mass: 6.42e+23 kg
+User Inputs: Pluto
+Output: Enter a different Planet
+
+
+
+Some planets had 130 moons etc however the moon count only suggests 4 as that is how many I inputted but was unsure how to do this.
